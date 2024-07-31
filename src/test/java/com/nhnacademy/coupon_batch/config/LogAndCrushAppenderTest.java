@@ -37,6 +37,18 @@ class LogAndCrushAppenderTest {
     }
 
     @Test
+    void testStartWithoutAppKeyAndPlatform() {
+        // Given
+        appender.setAppKey(null);
+        appender.setPlatform(null);
+
+        // When
+        appender.start();
+
+    }
+
+
+    @Test
     void testAppend() {
         ILoggingEvent event = mock(ILoggingEvent.class);
         when(event.getFormattedMessage()).thenReturn("Test log message");
